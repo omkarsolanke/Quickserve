@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickServe - Client Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+<!-- Navbar -->
+<nav class="bg-blue-600 text-white p-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+  <span class="text-lg font-semibold">QuickServe Client</span>
+  <div class="flex flex-wrap gap-2 md:gap-4 items-center justify-center md:justify-end">
+    <button onclick="showTab('requestForm')" class="bg-white text-blue-600 px-3 py-1 rounded-lg">Request Service</button>
+    <button onclick="showTab('myRequests')" class="bg-white text-blue-600 px-3 py-1 rounded-lg">My Requests</button>
+    <button onclick="logout()" class="bg-red-600 text-white px-3 py-2 rounded-lg hover:bg-red-700">Logout</button>
+  </div>
+</nav>
+
+<main class="flex-1 p-4 md:p-6">
+
+  <!-- Request Service Form -->
+  <div id="requestForm" class="tab-content max-w-3xl mx-auto bg-white p-4 md:p-6 rounded-xl shadow-md space-y-4">
+    <h2 class="text-xl md:text-2xl font-bold text-blue-600 mb-2">Request a Service</h2>
+    <div class="space-y-3">
+      <label class="block font-medium">Service</label>
+      <select id="serviceType" class="w-full border rounded px-2 py-1 md:px-3 md:py-2">
+        <option value="Plumbing">Plumbing</option>
+        <option value="AC Repair">AC Repair</option>
+        <option value="Electrical Maintenance">Electrical Maintenance</option>
+        <option value="Cleaning">Cleaning</option>
+      </select>
+    </div>
+
+
+    <div class="space-y-3">
+      <label class="block font-medium">Urgency</label>
+      <select id="urgency" class="w-full border rounded px-2 py-1 md:px-3 md:py-2">
+        <option value="normal">Normal</option>
+        <option value="urgent">Urgent</option>
+      </select>
+    </div>
+
+    <div class="space-y-3">
+      <label class="block font-medium">Service Address</label>
+      <input type="text" id="address" placeholder="Enter your address" class="w-full border rounded px-2 py-1 md:px-3 md:py-2"/>
+    </div>
+
+    <button onclick="submitRequest()" class="bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-blue-700">Submit Request</button>
+  </div>
+
+  <!-- My Requests Tab -->
+  <div id="myRequests" class="tab-content hidden max-w-4xl mx-auto space-y-4">
+    <div id="noRequests" class="bg-white p-4 md:p-6 rounded-xl shadow-md text-center text-gray-600">
+      You have no active requests.
+    </div>
+    <div id="requestList" class="space-y-4"></div>
+    <div id="mapContainer" class="hidden mt-4 h-64 md:h-96 w-full rounded-xl shadow-md"></div>
+  </div>
+
+</main>
+
+<script src="client-dashboard.js"></script>
+</body>
+</html>

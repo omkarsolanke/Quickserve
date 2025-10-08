@@ -1,0 +1,130 @@
+<!-- find-provider.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Service Provider - QuickServe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">QuickServe</h1>
+    <nav class="space-x-4">
+      <a href="client.html" class="hover:underline">Home</a>
+      <a href="findprovider.html" class="font-semibold underline">Find a Provider</a>
+      <a href="#" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-12 bg-blue-100 px-4">
+    <h2 class="text-3xl font-bold mb-4">Find Trusted Professionals Near You</h2>
+    <p class="text-lg text-gray-700">AI-powered matching for fast, reliable service in your area.</p>
+  </section>
+
+  <!-- Search Form -->
+  <section class="max-w-3xl mx-auto bg-white p-6 rounded shadow mt-8 mb-6">
+    <h3 class="text-xl font-semibold mb-4">Tell Us What You Need</h3>
+    <form class="grid gap-4">
+      <!-- Service Type -->
+      <div>
+        <label class="block font-medium mb-1">Service Category</label>
+        <select class="w-full p-2 border rounded" required>
+          <option value="">Select a service</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="electrical">Electrical</option>
+          <option value="ac">AC Repair</option>
+          <option value="cleaning">Locksmith</option>
+          <option value="appliance">Appliance Repair</option>
+        </select>
+      </div>
+
+      <!-- Location -->
+      <div>
+        <label class="block font-medium mb-1">Location</label>
+        <input type="text" placeholder="Enter your city or ZIP code" class="w-full p-2 border rounded" required />
+      </div>
+
+      <!-- Urgency -->
+      <div>
+        <label class="block font-medium mb-1">Urgency</label>
+        <select class="w-full p-2 border rounded">
+          <option value="">Select Urgency</option>
+          <option value="soon">Soon</option>
+          <option value="urgent">Urgent</option>
+        </select>
+      </div>
+
+
+      <!-- Button -->
+      <div class="text-right">
+        <a href="login.html" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 block text-center">
+  Find Providers
+</a>
+
+      </div>
+    </form>
+  </section>
+
+  <!-- Matched Providers (Static Demo) -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h3 class="text-2xl font-bold mb-6 text-center">Matched Providers (Sample)</h3>
+    <div class="grid gap-6 md:grid-cols-3">
+
+      <!-- Card 1 -->
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="text-lg font-semibold">Ravi's Plumbing Services</h4>
+        <p class="text-sm text-gray-600">📍 Pune | ⭐ 4.8 (230 reviews)</p>
+        <p class="mt-2 text-sm">Affordable & fast plumbing solutions. Available today.</p>
+        <a href="login.html" class="mt-4 block text-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+  Book Now
+</a>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="text-lg font-semibold">EcoClean Pros</h4>
+        <p class="text-sm text-gray-600">📍 Pune | ⭐ 4.5 (120 reviews)</p>
+        <p class="mt-2 text-sm">Home and office cleaning experts. Eco-friendly supplies.</p>
+        <a href="login.html" class="mt-4 block text-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+  Book Now
+</a>
+ </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="text-lg font-semibold">CoolFix AC Repair</h4>
+        <p class="text-sm text-gray-600">📍 Pune | ⭐ 4.7 (190 reviews)</p>
+        <p class="mt-2 text-sm">Emergency AC repair. Trained & certified technicians.</p>
+        <a href="login.html" class="mt-4 block text-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+  Book Now
+</a>
+ </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center py-6 mt-10">
+    <p>&copy; 2025 QuickServe. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+<script>
+  // Redirect "Book Now" buttons to login page
+  document.querySelectorAll("button").forEach(button => {
+    const text = button.textContent.trim();
+    if (text === "Book Now" || text === "Find Providers") {
+      button.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent form submission
+        window.location.href = "login.html"; // Redirect to login page
+      });
+    }
+  });
+</script>
+
